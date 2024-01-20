@@ -143,7 +143,12 @@ app.get("/about", function(req, res){
   res.render("about");
 });
 
-app.listen(3000, function (err) {
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 8000;
+}
+
+app.listen(port, function (err) {
   if (err) {
     console.error("Error starting server:", err);
   } else {
